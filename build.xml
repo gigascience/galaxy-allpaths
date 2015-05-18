@@ -1,0 +1,41 @@
+<project name="galaxy_allpaths" default="allpaths" basedir=".">
+    <description>
+        A build file for generating Galaxy packages for allpaths tool.
+    </description>
+    <!-- Global properties for build -->
+    <property file="build.properties"/>
+    <property name="build.dir" location="./build"/>
+    <property name="dependencies.dir" location="./dependencies"/>
+    <property name="data.managers.dir" location="./data_managers"/>
+    <property name="test-data.dir" location="./test-data"/>
+    <property name="tool-data.dir" location="./tool-data"/>
+    <property name="tools.dir" location="./tools"/>
+
+    <target name="init">
+        <!-- Create time stamp -->
+        <tstamp/>
+        <!-- Check build dir -->
+        <available file="./${build.dir}" type="dir" property="build.found"/>
+    </target>
+
+    <target name="build" unless="build.found">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="allpaths" depends="build">
+        <mkdir dir="${build.dir}/allpaths"/>
+        <copy todir="${build.dir}/allpaths">
+            <fileset dir="${tools.dir}/allpaths"/>
+        </copy>
+        <mkdir dir="${build.dir}/allpaths/test-data"/>
+
+        <tar destfile="${build.dir}/allpaths.tar" basedir="${build.dir}/allpaths"/>
+        <gzip destfile="${build.dir}/allpaths.tar.gz" src="${build.dir}/allpaths.tar"/>
+        <delete file="${build.dir}/allpaths.tar"/>
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete build directory -->
+        <delete dir="${build.dir}"/>
+    </target>
+</project>

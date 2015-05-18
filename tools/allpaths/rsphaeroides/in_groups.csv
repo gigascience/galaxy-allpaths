@@ -1,0 +1,3 @@
+                     file_name, library_name, group_name
+     saureus/data/frag_?.fastq,         frag, frags
+saureus/data/shortjump_?.fastq,    shortjump, jumps       
