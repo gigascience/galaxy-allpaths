@@ -61,25 +61,25 @@ def main():
         inlibs_out.close()
     else:
         contigs_out = open(opts.contigs, 'w')
-        f = open(opts.tool_dir + '/sphaeroides/final.contigs.fasta')
+        f = open(opts.tool_dir + '/rsphaeroides/final.contigs.fasta')
         for line in f:
             contigs_out.write(line)
         contigs_out.close()
 
         scaffolds_out = open(opts.scaffolds, 'w')
-        f = open(opts.tool_dir + '/sphaeroides/final.assembly.fasta')
+        f = open(opts.tool_dir + '/rsphaeroides/final.assembly.fasta')
         for line in f:
             scaffolds_out.write(line)
         scaffolds_out.close()
 
         ingroups_out = open(opts.in_groups, 'w')
-        f = open(opts.tool_dir + '/sphaeroides/in_groups.csv')
+        f = open(opts.tool_dir + '/rsphaeroides/in_groups.csv')
         for line in f:
             ingroups_out.write(line)
         ingroups_out.close()
 
         inlibs_out = open(opts.in_libs, 'w')
-        f = open(opts.tool_dir + '/sphaeroides/in_libs.csv')
+        f = open(opts.tool_dir + '/rsphaeroides/in_libs.csv')
         for line in f:
             inlibs_out.write(line)
         inlibs_out.close()
