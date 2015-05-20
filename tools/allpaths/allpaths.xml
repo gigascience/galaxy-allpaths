@@ -25,12 +25,12 @@
     <outputs>
         <data name="contigs"
               type="data"
-              format="txt"
+              format="fasta"
               label="allpaths.contigs">
         </data>
         <data name="scaffolds"
               type="data"
-              format="txt"
+              format="fasta"
               label="allpaths.scaffolds">
         </data>
         <data name="in_groups"
